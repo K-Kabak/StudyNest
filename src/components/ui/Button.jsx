@@ -19,13 +19,13 @@ export const Button = ({
   children,
   ...props
 }) => {
-  const baseStyles = 'font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2';
+  const baseStyles = 'font-semibold rounded-lg transition-all duration-200 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2';
 
   const variants = {
-    primary: 'bg-primary-600 text-white hover:bg-primary-700 active:scale-95 disabled:bg-neutral-400',
-    secondary: 'bg-neutral-200 text-neutral-900 hover:bg-neutral-300 active:scale-95 disabled:bg-neutral-300',
-    ghost: 'bg-transparent text-primary-600 hover:bg-primary-50 disabled:text-neutral-400',
-    danger: 'bg-danger-500 text-white hover:bg-danger-600 active:scale-95 disabled:bg-neutral-400',
+    primary: 'bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-600 dark:hover:bg-primary-500 active:scale-95 disabled:bg-neutral-400 focus:ring-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-neutral-900',
+    secondary: 'bg-neutral-200 text-neutral-900 hover:bg-neutral-300 dark:bg-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-600 active:scale-95 disabled:bg-neutral-300 focus:ring-neutral-400 dark:focus:ring-neutral-600 dark:focus:ring-offset-neutral-900',
+    ghost: 'bg-transparent text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 disabled:text-neutral-400 focus:ring-primary-600 dark:focus:ring-primary-500 dark:focus:ring-offset-neutral-900',
+    danger: 'bg-danger-500 text-white hover:bg-danger-600 dark:bg-danger-600 dark:hover:bg-danger-500 active:scale-95 disabled:bg-neutral-400 focus:ring-danger-500 dark:focus:ring-danger-600 dark:focus:ring-offset-neutral-900',
   };
 
   const sizes = {

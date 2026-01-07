@@ -31,7 +31,7 @@ export const Modal = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
           />
 
           {/* Modal */}
@@ -42,7 +42,7 @@ export const Modal = ({
             transition={{ duration: 0.2 }}
             className={clsx(
               'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50',
-              'bg-white rounded-lg shadow-2xl p-6 mx-4',
+              'bg-white dark:bg-neutral-800 rounded-lg shadow-2xl dark:shadow-neutral-950/50 p-6 mx-4',
               sizes[size],
               className
             )}
@@ -50,11 +50,11 @@ export const Modal = ({
             {/* Header */}
             {title && (
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-neutral-900">{title}</h2>
+                <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">{title}</h2>
                 {closeButton && (
                   <button
                     onClick={onClose}
-                    className="text-neutral-500 hover:text-neutral-700 transition-colors"
+                    className="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-200 transition-colors focus-ring-inset"
                     aria-label="Close modal"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

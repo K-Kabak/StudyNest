@@ -40,7 +40,7 @@ export const FocusMode = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 flex items-center justify-center"
+        className="fixed inset-0 z-50 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900 flex items-center justify-center backdrop-blur-sm"
       >
         {/* Exit button */}
         <motion.button
@@ -48,7 +48,7 @@ export const FocusMode = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           onClick={onClose}
-          className="absolute top-8 right-8 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+          className="absolute top-8 right-8 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white focus-ring-inset"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
@@ -102,7 +102,7 @@ export const FocusMode = ({
             className="w-full max-w-2xl"
           >
             {/* Volume control */}
-            <div className="flex items-center gap-4 mb-6 bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="flex items-center gap-4 mb-6 bg-white/10 backdrop-blur-md rounded-xl p-4 focus-ring-inset">
               <Volume2 size={20} className="text-white/70" />
               <input
                 type="range"
@@ -111,7 +111,7 @@ export const FocusMode = ({
                 step="0.1"
                 value={volume}
                 onChange={(e) => onVolumeChange(parseFloat(e.target.value))}
-                className="flex-1 h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-white"
+                className="flex-1 h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-900"
               />
               <span className="text-white/70 text-sm min-w-[3rem] text-right">
                 {Math.round(volume * 100)}%

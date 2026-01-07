@@ -1,6 +1,7 @@
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { Card } from '../ui/Card';
 import { useMemo } from 'react';
+import { useTheme } from '../../context/useTheme';
 
 const COLORS = ['#5b4e9e', '#a8d5ba', '#e8a0a0', '#dcc9c0', '#8b7ebd'];
 
@@ -8,6 +9,14 @@ const COLORS = ['#5b4e9e', '#a8d5ba', '#e8a0a0', '#dcc9c0', '#8b7ebd'];
  * Advanced Statistics Charts Component
  */
 export const AdvancedStats = ({ stats = {} }) => {
+  const { isDark } = useTheme();
+
+  const chartColors = {
+    text: isDark ? '#d1d5db' : '#666',
+    grid: isDark ? '#374151' : '#e0e0e0',
+    tooltip: isDark ? '#1f2937' : '#fff',
+    tooltipBorder: isDark ? '#4b5563' : '#ddd',
+  };
   const sessionData = useMemo(() => {
     const history = stats.history || [];
 
@@ -43,14 +52,15 @@ export const AdvancedStats = ({ stats = {} }) => {
         </h3>
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={sessionData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-            <XAxis dataKey="day" stroke="#666" />
-            <YAxis stroke="#666" />
+            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
+            <XAxis dataKey="day" stroke={chartColors.text} />
+            <YAxis stroke={chartColors.text} />
             <Tooltip 
               contentStyle={{ 
-                backgroundColor: '#fff', 
-                border: '1px solid #ddd',
-                borderRadius: '8px'
+                backgroundColor: chartColors.tooltip, 
+                border: `1px solid ${chartColors.tooltipBorder}`,
+                borderRadius: '8px',
+                color: chartColors.text
               }} 
             />
             <Legend />
@@ -66,14 +76,15 @@ export const AdvancedStats = ({ stats = {} }) => {
         </h3>
         <ResponsiveContainer width="100%" height={250}>
           <LineChart data={focusTimeData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-            <XAxis dataKey="day" stroke="#666" />
-            <YAxis stroke="#666" />
+            <CartesianGrid strokeDasharray="3 3" stroke={chartColors.grid} />
+            <XAxis dataKey="day" stroke={chartColors.text} />
+            <YAxis stroke={chartColors.text} />
             <Tooltip 
               contentStyle={{ 
-                backgroundColor: '#fff', 
-                border: '1px solid #ddd',
-                borderRadius: '8px'
+                backgroundColor: chartColors.tooltip, 
+                border: `1px solid ${chartColors.tooltipBorder}`,
+                borderRadius: '8px',
+                color: chartColors.text
               }} 
             />
             <Legend />
@@ -113,7 +124,14 @@ export const AdvancedStats = ({ stats = {} }) => {
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip />
+              <Tooltip 
+                contentStyle={{ 
+                  backgroundColor: chartColors.tooltip, 
+                  border: `1px solid ${chartColors.tooltipBorder}`,
+                  borderRadius: '8px',
+                  color: chartColors.text
+                }} 
+              />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -122,17 +140,17 @@ export const AdvancedStats = ({ stats = {} }) => {
       {/* Summary Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card className="p-4 text-center">
-          <p className="text-2xl font-bold text-primary-600">{stats.totalSessions || 0}</p>
+          <p className="text-2xl font-bold text-primary-600 dark:text-primary-400">{stats.totalSessions || 0}</p>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Total Sessions</p>
         </Card>
         
         <Card className="p-4 text-center">
-          <p className="text-2xl font-bold text-success-600">{stats.totalFocusTime || 0}</p>
+          <p className="text-2xl font-bold text-success-600 dark:text-success-400">{stats.totalFocusTime || 0}</p>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Focus Hours</p>
         </Card>
         
         <Card className="p-4 text-center">
-          <p className="text-2xl font-bold text-primary-600">{stats.tasksCompleted || 0}</p>
+          <p className="text-2xl font-bold text-primary-600 dark:text-primary-400">{stats.tasksCompleted || 0}</p>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">Tasks Done</p>
         </Card>
         

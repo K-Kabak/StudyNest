@@ -22,16 +22,36 @@
 
   a {
     @apply text-primary-600 hover:text-primary-700 transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2;
+    @apply dark:focus:ring-primary-500 dark:focus:ring-offset-neutral-900;
     text-decoration: none;
   }
 
   button {
     @apply cursor-pointer transition-all;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2;
+    @apply dark:focus:ring-primary-500 dark:focus:ring-offset-neutral-900;
   }
 
   input,
   textarea {
     @apply font-sans;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2;
+    @apply dark:focus:ring-primary-500 dark:focus:ring-offset-neutral-900;
+  }
+
+  /* Accessibility: Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
@@ -76,41 +96,30 @@
       opacity: 0.7;
     }
   }
+
+  /* Accessibility: Simplified animations for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fadeIn,
+    .animate-slideUp,
+    .animate-scaleIn,
+    .animate-pulseSoft {
+      animation: none !important;
+    }
+  }
+
+  /* Utility classes for focus states */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2;
+    @apply dark:focus:ring-primary-500 dark:focus:ring-offset-neutral-900;
+  }
+
+  .focus-ring-inset {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-inset;
+    @apply dark:focus:ring-primary-500;
+  }
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

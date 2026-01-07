@@ -19,9 +19,9 @@ const MOTIVATIONAL_MESSAGES = [
 /* eslint-disable-next-line no-unused-vars */
 const StatCard = ({ icon: Icon, label, value, unit = '', color = 'primary' }) => {
   const colors = {
-    primary: 'bg-primary-50 text-primary-700',
-    success: 'bg-success-100 text-success-600',
-    warning: 'bg-neutral-100 text-neutral-900',
+    primary: 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400',
+    success: 'bg-success-100 dark:bg-success-900/20 text-success-600 dark:text-success-400',
+    warning: 'bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100',
   };
 
   return (
@@ -65,7 +65,7 @@ export const StatsPanel = ({
     <div className="space-y-4">
       {/* Today's Stats */}
       <div>
-        <h3 className="text-sm font-semibold text-neutral-900 mb-3">Today's Progress</h3>
+        <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3">Today's Progress</h3>
         <div className="grid grid-cols-2 gap-3">
           <StatCard
             icon={Clock}
@@ -88,9 +88,9 @@ export const StatsPanel = ({
       <motion.div
         initial={{ scale: 0.95 }}
         animate={{ scale: 1 }}
-        className="p-4 bg-gradient-to-br from-primary-100 to-primary-50 rounded-lg border border-primary-200"
+        className="p-4 bg-gradient-to-br from-primary-100 to-primary-50 dark:from-primary-900/30 dark:to-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-900/50"
       >
-        <p className="text-center text-lg font-semibold text-primary-900">
+        <p className="text-center text-lg font-semibold text-primary-900 dark:text-primary-200">
           {motivationalMessage}
         </p>
       </motion.div>
