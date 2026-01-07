@@ -1,0 +1,43 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGradient)"/>
+  
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6b5bb3"/>
+      <stop offset="100%" stop-color="#5b4e9e"/>
+    </linearGradient>
+    <linearGradient id="nestGradient" x1="256" y1="160" x2="256" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#faf9f8"/>
+      <stop offset="100%" stop-color="#f0ece6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Nest shape (larger) -->
+  <path d="M256 160C195 160 145 190 145 240C145 290 170 340 256 365C342 340 367 290 367 240C367 190 317 160 256 160Z" fill="url(#nestGradient)" opacity="0.98"/>
+  
+  <!-- Shadow effect -->
+  <ellipse cx="256" cy="360" rx="100" ry="15" fill="#4a3f7f" opacity="0.2"/>
+  
+  <!-- Timer circle -->
+  <circle cx="256" cy="250" r="75" fill="none" stroke="#5b4e9e" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Timer arc (progress indicator) -->
+  <path d="M256 175 A75 75 0 0 1 331 250" fill="none" stroke="#e8b86d" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Timer hand -->
+  <line x1="256" y1="250" x2="256" y2="195" stroke="#5b4e9e" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Center dot -->
+  <circle cx="256" cy="250" r="8" fill="#5b4e9e"/>
+  
+  <!-- Decorative elements (small dots around) -->
+  <circle cx="196" cy="290" r="6" fill="#e8b86d" opacity="0.7"/>
+  <circle cx="316" cy="290" r="6" fill="#e8b86d" opacity="0.7"/>
+  <circle cx="256" cy="320" r="7" fill="#e8b86d" opacity="0.8"/>
+  <circle cx="226" cy="305" r="4" fill="#e8b86d" opacity="0.5"/>
+  <circle cx="286" cy="305" r="4" fill="#e8b86d" opacity="0.5"/>
+  
+  <!-- Subtle highlight -->
+  <circle cx="256" cy="250" r="70" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.15"/>
+</svg>
